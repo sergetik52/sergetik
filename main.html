@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жан-Поль Марат | ВКонтакте</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            color: #e1e3e6;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .header {
+            background-color: #2c2d2e;
+            color: white;
+            padding: 15px 0;
+            width: 100%;
+            border-bottom: 1px solid #3a3b3c;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+            color: #4a76a8;
+        }
+        
+        .profile-header {
+            background: linear-gradient(to bottom, #2c2d2e, #1e1f20);
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+        }
+        
+        .profile-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.1);
+            margin-right: 20px;
+            object-fit: cover;
+            background-color: #333;
+        }
+        
+        .profile-details {
+            flex: 1;
+        }
+        
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .profile-location {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            color: #a5a7aa;
+        }
+        
+        .profile-status {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #71aaeb;
+        }
+        
+        .profile-button {
+            background-color: #4a76a8;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        
+        .profile-button:hover {
+            background-color: #5e81a8;
+        }
+        
+        .sidebar {
+            width: 30%;
+            padding: 15px;
+        }
+        
+        .content {
+            width: 70%;
+            padding: 15px;
+        }
+        
+        .section {
+            background-color: #222325;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 0 0 #3a3b3c, 0 0 0 1px #3a3b3c;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #e1e3e6;
+            border-bottom: 1px solid #3a3b3c;
+            padding-bottom: 8px;
+        }
+        
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #3a3b3c;
+            transition: background-color 0.2s;
+            border-radius: 4px;
+            padding-left: 8px;
+        }
+        
+        .menu-item:hover {
+            background-color: #2c2d2e;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            background-color: #4a76a8;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .friends-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .friend-item {
+            width: calc(50% - 5px);
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .friend-item:hover {
+            background-color: #2c2d2e;
+        }
+        
+        .friend-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            background-color: #333;
+        }
+        
+        .post {
+            margin-bottom: 20px;
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            background-color: #333;
+        }
+        
+        .post-author {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        
+        .post-date {
+            font-size: 12px;
+            color: #a5a7aa;
+        }
+        
+        .post-content {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .post-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background-color: #333;
+        }
+        
+        .post-image img {
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        .image-caption {
+            font-size: 12px;
+            color: #a5a7aa;
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .post-actions {
+            display: flex;
+            gap: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #3a3b3c;
+        }
+        
+        .post-action {
+            display: flex;
+            align-items: center;
+            color: #a5a7aa;
+            cursor: pointer;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        .post-action:hover {
+            color: #4a76a8;
+        }
+        
+        .subscription {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #3a3b3c;
+            transition: background-color 0.2s;
+            border-radius: 4px;
+            padding-left: 8px;
+        }
+        
+        .subscription:hover {
+            background-color: #2c2d2e;
+        }
+        
+        .subscription:last-child {
+            border-bottom: none;
+        }
+        
+        .subscription-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            background-color: #333;
+        }
+        
+        .subscription-info {
+            flex: 1;
+        }
+        
+        .subscription-name {
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        
+        .subscription-description {
+            font-size: 12px;
+            color: #a5a7aa;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            color: #e1e3e6;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav-link:hover {
+            background-color: #3a3b3c;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar, .content {
+                width: 100%;
+            }
+            
+            .profile-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+        
+        .online-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            margin-left: 5px;
+        }
+        
+        .friend-name {
+            font-size: 14px;
+        }
+        
+        .like-count {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ВКонтакте</div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Моя страница</a>
+                    <a href="#" class="nav-link">Новости</a>
+                    <a href="#" class="nav-link">Сообщения</a>
+                    <a href="#" class="nav-link">Друзья</a>
+                    <a href="#" class="nav-link">Сообщества</a>
+                    <a href="#" class="nav-link">Фотографии</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="profile-header">
+        <div class="container">
+            <div class="profile-info">
+                <img src="https://avatars.mds.yandex.net/get-entity_search/2376568/1210517168/SUx182_2x" alt="Жан-Поль Марат" class="profile-avatar">
+                <div class="profile-details">
+                    <div class="profile-name">Жан-Поль Марат <span class="online-indicator"></span></div>
+                    <div class="profile-date">Родился 24 мая 1743</div>
+                    <div class="profile-location">Париж, Франция</div>
+                    <div class="profile-status">«Друг народа» - революционер, журналист, политический деятель</div>
+                    <button class="profile-button">Написать сообщение</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="sidebar">
+            <div class="section">
+                <div class="section-title">Сообщение</div>
+                <div class="menu-item">
+                    <div class="menu-icon"><i class="fas fa-image"></i></div>
+                    Фото
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon"><i class="fas fa-film"></i></div>
+                    Клипы
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon"><i class="fas fa-video"></i></div>
+                    Видео
+                </div>
+                <div class="menu-item">
+                    <div class="menu-icon"><i class="fas fa-images"></i></div>
+                    Альбомы
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Общие друзья 3</div>
+                <div class="friend-item">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/2032283/1210317368/S600xU_2x" alt="Максимилиан Робеспьер" class="friend-avatar">
+                    <div class="friend-name">Максимилиан Робеспьер</div>
+                </div>
+                <div class="friend-item">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/2103124/1209704314/SUx182_2x" alt="Жорж Дантон" class="friend-avatar">
+                    <div class="friend-name">Жорж Дантон</div>
+                </div>
+                <div class="friend-item">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/9707519/1205197640/SUx182_2x" alt="Луи Антуан Сен-Жюст" class="friend-avatar">
+                    <div class="friend-name">Луи Антуан Сен-Жюст</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Друзья 178</div>
+                <div class="friend-item">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/9705028/964308015/SUx182_2x" alt="Камиль Демулен" class="friend-avatar">
+                    <div class="friend-name">Камиль Демулен</div>
+                </div>
+                <div class="friend-item">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/1974363/1202327138/SUx182_2x" alt="Жак Ру" class="friend-avatar">
+                    <div class="friend-name">Жак Ру</div>
+                </div>
+                <div class="friend-item">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/61993/209835368/SUx182_2x" alt="Пьер Гаспар Шометт" class="friend-avatar">
+                    <div class="friend-name">Пьер Гаспар Шометт</div>
+                </div>
+                <div class="friend-item">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/10767883/1170324562/SUx182_2x" alt="Жак Эбер" class="friend-avatar">
+                    <div class="friend-name">Жак Эбер</div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Подарки 5</div>
+                <div class="menu-item">
+                    <div class="menu-icon"><i class="fas fa-gift"></i></div>
+                    Отправить подарок
+                </div>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <div class="section-title">Все посты</div>
+                <div class="post">
+                    <div class="post-header">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2376568/1210517168/SUx182_2x" alt="Жан-Поль Марат" class="post-avatar">
+                        <div>
+                            <div class="post-author">Жан-Поль Марат</div>
+                            <div class="post-date">13 июля 1793</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Друзья, сегодня я выпустил новый номер газеты "Друг народа". В нем я разоблачаю предателей революции, которые скрываются в Конвенте. Мы должны быть бдительны! Тирания еще не побеждена, а аристократы продолжают строить козни против народа.</p>
+                        <p>Призываю всех патриотов быть начеку и сообщать о любых подозрительных действиях. Революция требует жертв, и мы должны быть готовы принести их ради свободы!</p>
+                    </div>
+                    <div class="post-image">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2310675/551859954/S600xU" alt="Газета Друг народа">
+                        <div class="image-caption">Газета "Друг народа", которую издавал Марат</div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="post-action"><i class="far fa-heart"></i> Нравится <span class="like-count">147</span></div>
+                        <div class="post-action"><i class="far fa-comment"></i> Комментировать <span class="like-count">23</span></div>
+                        <div class="post-action"><i class="fas fa-share"></i> Поделиться <span class="like-count">12</span></div>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2376568/1210517168/SUx182_2x" alt="Жан-Поль Марат" class="post-avatar">
+                        <div>
+                            <div class="post-author">Жан-Поль Марат</div>
+                            <div class="post-date">2 июня 1793</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Товарищи! Сегодня великий день для революции! Жирондисты, эти предатели народа, наконец-то изгнаны из Конвента. Их мягкотелость и соглашательство с врагами революции больше не будут мешать нашему движению вперед.</p>
+                        <p>Теперь, когда власть в руках истинных патриотов - якобинцев, мы сможем довести революцию до победного конца. Да здравствует Республика! Да здравствует народ!</p>
+                    </div>
+                    <div class="post-image">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/1956054/482722682/S600xU_2x" alt="Якобинский клуб">
+                        <div class="image-caption">Якобинский клуб - центр революционной деятельности</div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="post-action"><i class="far fa-heart"></i> Нравится <span class="like-count">201</span></div>
+                        <div class="post-action"><i class="far fa-comment"></i> Комментировать <span class="like-count">45</span></div>
+                        <div class="post-action"><i class="fas fa-share"></i> Поделиться <span class="like-count">31</span></div>
+                    </div>
+                </div>
+                
+                <div class="post">
+                    <div class="post-header">
+                        <img src="https://avatars.mds.yandex.net/get-entity_search/2376568/1210517168/SUx182_2x" alt="Жан-Поль Марат" class="post-avatar">
+                        <div>
+                            <div class="post-author">Жан-Поль Марат</div>
+                            <div class="post-date">24 апреля 1793</div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Граждане! Я призываю к созданию Революционного трибунала, который будет беспощадно карать врагов революции. Мы не можем позволить предателям и шпионам разрушать наше дело изнутри.</p>
+                        <p>Террор должен стать порядком дня! Только так мы сможем защитить завоевания революции и обеспечить победу свободы над тиранией. Необходимо установить диктатуру, которая сокрушит всех врагов народа!</p>
+                    </div>
+                    <div class="post-image">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Tribunal_révolutionnaire_04.jpg/330px-Tribunal_révolutionnaire_04.jpg" alt="Революционный трибунал">
+                        <div class="image-caption">Заседание Революционного трибунала</div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="post-action"><i class="far fa-heart"></i> Нравится <span class="like-count">189</span></div>
+                        <div class="post-action"><i class="far fa-comment"></i> Комментировать <span class="like-count">67</span></div>
+                        <div class="post-action"><i class="fas fa-share"></i> Поделиться <span class="like-count">28</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-title">Подписки 12</div>
+                <div class="subscription">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/1956054/482722682/S600xU_2x" alt="Якобинский клуб" class="subscription-avatar">
+                    <div class="subscription-info">
+                        <div class="subscription-name">Якобинский клуб</div>
+                        <div class="subscription-description">Общество друзей конституции</div>
+                    </div>
+                </div>
+                <div class="subscription">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/2310675/551859954/S600xU" alt="Друг народа" class="subscription-avatar">
+                    <div class="subscription-info">
+                        <div class="subscription-name">Газета "Друг народа"</div>
+                        <div class="subscription-description">Голос революции</div>
+                    </div>
+                </div>
+                <div class="subscription">
+                    <img src="https://avatars.mds.yandex.net/get-entity_search/1714932/354232664/S114x114FitScale_2x" alt="Клуб кордельеров" class="subscription-avatar">
+                    <div class="subscription-info">
+                        <div class="subscription-name">Клуб кордельеров</div>
+                        <div class="subscription-description">Общество прав человека</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Добавляем интерактивность для кнопок лайков
+        document.querySelectorAll('.post-action').forEach(action => {
+            action.addEventListener('click', function() {
+                if (this.querySelector('.fa-heart')) {
+                    const heartIcon = this.querySelector('.fa-heart');
+                    const likeCount = this.querySelector('.like-count');
+                    
+                    if (heartIcon.classList.contains('far')) {
+                        heartIcon.classList.remove('far');
+                        heartIcon.classList.add('fas');
+                        heartIcon.style.color = '#ff3347';
+                        likeCount.textContent = parseInt(likeCount.textContent) + 1;
+                    } else {
+                        heartIcon.classList.remove('fas');
+                        heartIcon.classList.add('far');
+                        heartIcon.style.color = '';
+                        likeCount.textContent = parseInt(likeCount.textContent) - 1;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
